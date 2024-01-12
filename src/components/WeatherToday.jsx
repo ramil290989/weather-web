@@ -3,7 +3,7 @@ import CurrentWeather from './CurrentWeather.jsx';
 import WeatherThreeTime from './WeatherThreeTime.jsx';
 
 const WeatherToday = () => (
-  <div className='container mx-auto flex flex-col border-2'>
+  <div className='max-w-md flex flex-col mx-auto'>
     <CurrentWeather />
     <WeatherThreeTime />
   </div>
