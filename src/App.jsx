@@ -1,12 +1,13 @@
 import React from 'react';
+import Header from './components/Header.jsx';
+import WeatherToday from './components/WeatherToday.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        react
-      </header>
-    </div>
+    <>
+      <Header />
+      <WeatherToday />
+    </>
   );
 }
 

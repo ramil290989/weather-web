@@ -21,7 +21,8 @@
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react/function-component-definition": 0,
     "jsx-a11y/rule-name": 0,
-    "import/extensions": "always"
+    "import/extensions": 2
   }
 }
