@@ -32,8 +32,7 @@ const currentWeatherSlice = createSlice({
         state.errors = null;
       })
       .addCase(getWeather.fulfilled, (state, action) => {
-        const weatherData = action.payload;
-        const currentWeather = weatherData.map(())
+        currentWeatherAdapter.addMany(state, action.payload);
         state.loadingStatus = 'idle';
         state.errors = null;
       })
