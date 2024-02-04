@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 currentData.json
+.env
 
 # testing
 /coverage
