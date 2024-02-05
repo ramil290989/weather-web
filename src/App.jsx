@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { getWeather } from './slices/currentWeatherSlice.js';
 import Loading from './components/Loading.jsx';
 import LoadingFailed from './components/LoadingFailed.jsx';
-import WeatherCard from './components/WeatherCard.jsx';
+import Weather from './pages/Weather.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const App = () => {
     case 'failed':
       return <LoadingFailed />;
     case 'idle':
-      return <WeatherCard />;
+      return <Weather />;
     default:
       return null;
   }
