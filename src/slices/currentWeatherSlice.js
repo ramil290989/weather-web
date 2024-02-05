@@ -2,13 +2,15 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import routes from '../utils/routes';
+import normalizeCurrentData from '../utils/normalizeCurrentData';
 
 export const getWeather = createAsyncThunk(
   'loadingWeather',
   async () => {
     const path = routes.getWeather();
     const response = await axios.get(path);
-    return response.data;
+    const normalizedData = normalizeCurrentData(response.data);
+    return normalizedData;
   },
 );
 
@@ -31,8 +33,8 @@ const currentWeatherSlice = createSlice({
         state.loadingStatus = 'loading';
         state.errors = null;
       })
-      .addCase(getWeather.fulfilled, (state, action) => {
-        currentWeatherAdapter.addMany(state, action.payload);
+      .addCase(getWeather.fulfilled, (state, { payload }) => {
+        currentWeatherAdapter.addMany(state, payload);
         state.loadingStatus = 'idle';
         state.errors = null;
       })
