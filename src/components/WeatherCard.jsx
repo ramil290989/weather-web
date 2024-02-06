@@ -28,25 +28,20 @@ const WeatherCard = () => {
     day: 'numeric',
   };
   return (
-    <Col xs={12}>
+    <Col xs={12} sm={10} md={9} lg={7} xl={6} xxl={5} className="border border-primary-subtle rounded p-1 p-md-3 mx-auto">
       <p className="mb-0">
         {date.toLocaleString('ru-RU', options)}
       </p>
       <p>
         {dateDescription}
       </p>
-      <Row className="flex-column">
-        <Col>
-          <Row>
-            <Col>
-              <Image src="./icons/ic_temp.svg" />
-            </Col>
-            <span className="fs-1">
-              {tempReal}
-              &deg;
-            </span>
-            <Image src={weatherIcon} />
-          </Row>
+      <Row className="flex-column flex-md-row">
+        <Col md={4}>
+          <span className="fs-1">
+            {tempReal}
+            &deg;
+          </span>
+          <Image src={weatherIcon} className="ms-3" />
         </Col>
         <Col>
           <p className="mb-0">
@@ -60,19 +55,21 @@ const WeatherCard = () => {
           </p>
         </Col>
       </Row>
-      <Row className="mt-3">
-        <Col>
+      <Row xs="auto" sm={3} className="flex-column flex-sm-row">
+        <Col sm={4}>
           <Image src="./icons/ic_wind.svg" className="me-2" />
           {windSpeed}
+          &nbsp;
           м/с
+          &nbsp;
           {windDirection}
         </Col>
-        <Col>
+        <Col sm={3}>
           <Image src="./icons/ic_humidity.svg" className="me-2" />
           {humidity}
           %
         </Col>
-        <Col>
+        <Col sm={5}>
           <Image src="./icons/ic_pressure.svg" className="me-2" />
           {pressure}
           &nbsp;
