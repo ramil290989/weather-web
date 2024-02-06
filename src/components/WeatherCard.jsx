@@ -36,14 +36,14 @@ const WeatherCard = () => {
         {dateDescription}
       </p>
       <Row className="flex-column flex-md-row">
-        <Col md={4}>
+        <Col md={4} className="text-center text-md-start">
           <span className="fs-1">
             {tempReal}
             &deg;
           </span>
-          <Image src={weatherIcon} className="ms-3" />
+          <Image src={weatherIcon} className="ms-2" />
         </Col>
-        <Col>
+        <Col className="text-center text-md-start">
           <p className="mb-0">
             {weatherDescription}
           </p>
@@ -55,7 +55,7 @@ const WeatherCard = () => {
           </p>
         </Col>
       </Row>
-      <Row xs="auto" sm={3} className="flex-column flex-sm-row">
+      <Row xs="auto" sm={3} className="flex-column flex-sm-row text-sm-center align-content-center">
         <Col sm={4}>
           <Image src="./icons/ic_wind.svg" className="me-2" />
           {windSpeed}
