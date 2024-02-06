@@ -1,5 +1,9 @@
 /* eslint-disable no-param-reassign */
-import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSlice,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import routes from '../utils/routes';
 import normalizeCurrentData from '../utils/normalizeCurrentData';
