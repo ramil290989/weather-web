@@ -8,4 +8,10 @@ const selectSoonWeather = createSelector([selectAll], (entities) => {
   return soon;
 });
 
-export { selectSoonWeather, selectAll };
+const selectNowWeather = createSelector([selectAll], (entities) => {
+  const data = Object.values(entities);
+  const now = data.shift();
+  return now;
+});
+
+export { selectSoonWeather, selectNowWeather, selectAll };
