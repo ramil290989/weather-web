@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import WeatherCard from '../components/WeatherCard.jsx';
-import WeatherSoon from '../components/WeatherSoon.jsx';
+import WeatherCard from './WeatherCard.jsx';
+import WeatherSoon from './WeatherSoon.jsx';
 
-const Weather = () => (
+const CurrentWeather = () => (
   <Container className="mt-2">
     <p className="text-center">Погода в Дюртюлях</p>
     <WeatherCard />
@@ -11,4 +11,4 @@ const Weather = () => (
   </Container>
 );
 
-export default Weather;
+export default CurrentWeather;
