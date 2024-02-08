@@ -3,8 +3,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Col, Row } from 'react-bootstrap';
-import { selectSoonWeather } from '../slices/selectors.js';
-import { actions as selectedActions } from '../slices/selectedSlice.js';
+import { selectSoonWeather } from '../../slices/selectors.js';
+import { actions as selectedActions } from '../../slices/selectedSlice.js';
 
 const WeatherSoon = () => {
   const soonWeatherData = useSelector(selectSoonWeather);

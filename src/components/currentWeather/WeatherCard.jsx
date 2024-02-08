@@ -6,8 +6,8 @@ import {
   Row,
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectNowWeather } from '../slices/selectors.js';
-import { actions as selectedActions } from '../slices/selectedSlice.js';
+import { selectNowWeather } from '../../slices/selectors.js';
+import { actions as selectedActions } from '../../slices/selectedSlice.js';
 
 const WeatherCard = () => {
   const dispatch = useDispatch();

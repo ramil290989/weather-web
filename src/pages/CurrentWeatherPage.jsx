@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getWeather } from '../slices/currentWeatherSlice.js';
 import Loading from '../components/Loading.jsx';
 import LoadingFailed from '../components/LoadingFailed.jsx';
-import CurrentWeather from '../components/CurrentWeather.jsx';
+import CurrentWeather from '../components/currentWeather/CurrentWeather.jsx';
 
 const CurrentWeatherPage = () => {
   const dispatch = useDispatch();
