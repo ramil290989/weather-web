@@ -1,31 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getWeather } from './slices/currentWeatherSlice.js';
-import Loading from './components/Loading.jsx';
-import LoadingFailed from './components/LoadingFailed.jsx';
-import Weather from './pages/Weather.jsx';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import CurrentWeatherPage from './pages/CurrentWeatherPage.jsx';
 
-const App = () => {
-  const dispatch = useDispatch();
-  const loadingStatus = useSelector((state) => state.currentWeather.loadingStatus);
-
-  useEffect(() => {
-    if (loadingStatus === 'loading') {
-      dispatch(getWeather());
-    }
-  });
-
-  switch (loadingStatus) {
-    case 'loading':
-      return <Loading />;
-    case 'failed':
-      return <LoadingFailed />;
-    case 'idle':
-      return <Weather />;
-    default:
-      return null;
-  }
-};
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<CurrentWeatherPage />} />
+    </Routes>
+  </BrowserRouter>
+);
 
 export default App;
