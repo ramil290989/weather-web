@@ -6,10 +6,12 @@ import {
   Row,
 } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { selectNowWeather } from '../../slices/selectors.js';
 import { actions as selectedActions } from '../../slices/selectedSlice.js';
 
 const WeatherCard = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const data = useSelector((state) => state.selected.data);
   const dataNow = useSelector(selectNowWeather);
@@ -65,6 +67,14 @@ const WeatherCard = () => {
                 </Button>
               )
           }
+          <Button
+            className="ms-2"
+            variant="outline-info"
+            size="sm"
+            onClick={() => navigate('/forecast')}
+          >
+            Прогноз на 10 дней
+          </Button>
         </Col>
       </Row>
       <Row className="flex-column flex-md-row">

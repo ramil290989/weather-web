@@ -1,12 +1,15 @@
 import React from 'react';
 import {
+  Button,
   Col,
   Image,
   Row,
 } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const ForecastCard = () => {
+  const navigate = useNavigate();
   const data = useSelector((state) => state.forecastWeather.selected);
   const {
     // id,
@@ -46,7 +49,16 @@ const ForecastCard = () => {
             {forecastDate.toLocaleString('ru-RU', weekdayOptions)}
           </p>
         </Col>
-        <Col className="col-auto" />
+        <Col className="col-auto">
+          <Button
+            className="ms-2"
+            variant="outline-info"
+            size="sm"
+            onClick={() => navigate('/')}
+          >
+            Подробный прогноз на сегодня
+          </Button>
+        </Col>
       </Row>
       <Row className="flex-column flex-md-row">
         <Col md={4} className="text-center text-md-start">
