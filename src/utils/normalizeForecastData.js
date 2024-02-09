@@ -14,11 +14,11 @@ const normalizeForecastData = (data) => {
     const tempFeel = {};
     const direction = {};
     const speed = {};
-    tempReal.min = item.temperature.air.min.C;
-    tempReal.max = item.temperature.air.max.C;
-    tempReal.avg = item.temperature.air.avg.C;
-    tempFeel.min = item.temperature.comfort.min.C;
-    tempFeel.max = item.temperature.comfort.max.C;
+    tempReal.min = Math.round(item.temperature.air.min.C);
+    tempReal.max = Math.round(item.temperature.air.max.C);
+    tempReal.avg = Math.round(item.temperature.air.avg.C);
+    tempFeel.min = Math.round(item.temperature.comfort.min.C);
+    tempFeel.max = Math.round(item.temperature.comfort.max.C);
     direction.min = windDirection[item.wind.direction.min.scale_8];
     direction.max = windDirection[item.wind.direction.max.scale_8];
     speed.min = item.wind.speed.min.m_s;
