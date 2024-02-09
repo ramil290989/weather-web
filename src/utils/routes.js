@@ -1,4 +1,6 @@
-const server = process.env.SERVER_PATH || 'http://192.168.1.35:3001';
+import env from 'react-dotenv';
+
+const server = env.REACT_APP_SERVER;
 
 const routes = {
   getWeather: () => `${server}/api/current`,
