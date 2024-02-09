@@ -22,7 +22,7 @@ const ForecastCard = () => {
     tempFeel,
     wind: { direction, speed },
   } = data;
-  const weatherIcon = `./weatherIcons/${icon}.svg`;
+  const weatherIcon = `url('./weatherIcons/${icon}.svg')`;
   const forecastDate = new Date(date);
   const dateOptions = {
     year: 'numeric',
@@ -38,10 +38,10 @@ const ForecastCard = () => {
       lg={7}
       xl={6}
       xxl={5}
-      className="border border-primary-subtle rounded p-1 p-md-3 mx-auto shadow-sm"
+      className="border border-primary-subtle rounded p-1 p-md-2 mx-auto shadow-sm"
     >
-      <Row>
-        <Col>
+      <Row className="flex-column flex-md-row text-center text-md-start">
+        <Col className="mb-2">
           <p className="mb-0">
             {forecastDate.toLocaleString('ru-RU', dateOptions)}
           </p>
@@ -49,7 +49,7 @@ const ForecastCard = () => {
             {forecastDate.toLocaleString('ru-RU', weekdayOptions)}
           </p>
         </Col>
-        <Col className="col-auto">
+        <Col className="col-auto mb-2">
           <Button
             className="ms-2"
             variant="outline-info"
@@ -60,17 +60,24 @@ const ForecastCard = () => {
           </Button>
         </Col>
       </Row>
-      <Row className="flex-column flex-md-row">
-        <Col md={4} className="text-center text-md-start">
-          <span className="fs-1">
+      <Row className="flex-column flex-md-row mx-auto">
+        <Col
+          className="text-center mb-2"
+          style={{
+            backgroundImage: weatherIcon,
+            backgroundPositionX: '50%',
+            backgroundPositionY: '100%',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <p className="fs-1 mb-5">
             {tempReal.min}
             &deg;
             &hellip;
             &nbsp;
             {tempReal.max}
             &deg;
-          </span>
-          <Image src={weatherIcon} className="ms-2" />
+          </p>
         </Col>
         <Col className="text-center text-md-start">
           <p className="mb-0">
@@ -88,8 +95,8 @@ const ForecastCard = () => {
           </p>
         </Col>
       </Row>
-      <Row xs="auto" sm={3} className="flex-column flex-sm-row text-sm-center align-content-center">
-        <Col sm={4}>
+      <Row xs="auto" className="flex-column flex-md-row align-content-center justify-content-around">
+        <Col>
           <Image src="./icons/ic_wind.svg" className="me-2" />
           {speed.min}
           &ndash;
@@ -101,12 +108,12 @@ const ForecastCard = () => {
           &ndash;
           {direction.max}
         </Col>
-        <Col sm={3}>
+        <Col>
           <Image src="./icons/ic_humidity.svg" className="me-2" />
           {humidity}
           %
         </Col>
-        <Col sm={5}>
+        <Col>
           <Image src="./icons/ic_pressure.svg" className="me-2" />
           {pressure}
           &nbsp;
