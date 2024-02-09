@@ -27,7 +27,7 @@ const WeatherSoon = () => {
                 style={{
                   backgroundImage: weatherIcon,
                   backgroundPositionX: '50%',
-                  backgroundPositionY: '60%',
+                  backgroundPositionY: '10%',
                   backgroundRepeat: 'no-repeat',
                 }}
                 onClick={() => dispatch(selectedActions.showData(weather))}
@@ -45,8 +45,11 @@ const WeatherSoon = () => {
                   currentTarget.classList.add('border-primary-subtle');
                 }}
               >
-                <p className="fs-3 m-0">{tempReal}</p>
-                <p className="mt-5 mb-1" style={{ fontSize: '12px' }}>{dateDescription}</p>
+                <p className="fs-3 mt-5 mb-0">
+                  {tempReal}
+                  &deg;
+                </p>
+                <p className="mb-1" style={{ fontSize: '12px' }}>{dateDescription}</p>
               </Col>
             </Col>
           );
