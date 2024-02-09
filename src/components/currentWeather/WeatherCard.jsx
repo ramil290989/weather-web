@@ -27,7 +27,7 @@ const WeatherCard = () => {
     humidity,
     pressure,
   } = data;
-  const weatherIcon = `./weatherIcons/${icon}.svg`;
+  const weatherIcon = `url('./weatherIcons/${icon}.svg')`;
   const date = new Date(dateLocal);
   const options = {
     year: 'numeric',
@@ -42,9 +42,9 @@ const WeatherCard = () => {
       lg={7}
       xl={6}
       xxl={5}
-      className="border border-primary-subtle rounded p-1 p-md-3 mx-auto shadow-sm"
+      className="border border-primary-subtle rounded p-1 p-md-2 mx-auto shadow-sm"
     >
-      <Row>
+      <Row className="flex-column flex-md-row mx-auto text-center text-md-start">
         <Col>
           <p className="mb-0">
             {date.toLocaleString('ru-RU', options)}
@@ -59,6 +59,7 @@ const WeatherCard = () => {
               ? null
               : (
                 <Button
+                  className="m-1"
                   variant="outline-info"
                   size="sm"
                   onClick={() => dispatch(selectedActions.showData(dataNow))}
@@ -68,7 +69,7 @@ const WeatherCard = () => {
               )
           }
           <Button
-            className="ms-2"
+            className="m-1 d-block d-md-inline mx-auto"
             variant="outline-info"
             size="sm"
             onClick={() => navigate('/forecast')}
@@ -78,12 +79,20 @@ const WeatherCard = () => {
         </Col>
       </Row>
       <Row className="flex-column flex-md-row">
-        <Col md={4} className="text-center text-md-start">
-          <span className="fs-1">
+        <Col
+          md={4}
+          className="text-center"
+          style={{
+            backgroundImage: weatherIcon,
+            backgroundPositionX: '50%',
+            backgroundPositionY: '90%',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          <p className="fs-1 mb-5">
             {tempReal}
             &deg;
-          </span>
-          <Image src={weatherIcon} className="ms-2" />
+          </p>
         </Col>
         <Col className="text-center text-md-start">
           <p className="mb-0">
