@@ -10,7 +10,7 @@ const ForecastDays = () => {
   const dispatch = useDispatch();
   return (
     <Col xs={12} sm={10} md={9} lg={7} xl={6} xxl={5} className="p-0 mx-auto">
-      <Row xs={2} className="gx-2 gy-2 mt-0">
+      <Row xs={2} md={5} className="gx-2 gy-2 mt-0">
         {forecastWeatherData.map((weather) => {
           const {
             id,
@@ -22,16 +22,17 @@ const ForecastDays = () => {
             month: 'long',
             day: 'numeric',
           };
+          const weekdayOptions = { weekday: 'long' };
           const forecastDate = new Date(date);
           const weatherIcon = `url('./weatherIcons/${icon}.svg')`;
           return (
-            <Col key={id} xs={6} lg={3}>
+            <Col key={id}>
               <Col
-                className="border border-primary-subtle rounded h-100 text-center shadow-sm"
+                className="border border-primary-subtle rounded h-100 text-center shadow-sm pt-1"
                 style={{
                   backgroundImage: weatherIcon,
                   backgroundPositionX: '50%',
-                  backgroundPositionY: '60%',
+                  backgroundPositionY: '5%',
                   backgroundRepeat: 'no-repeat',
                 }}
                 onClick={() => dispatch(forecastActions.selectData(weather))}
@@ -49,8 +50,9 @@ const ForecastDays = () => {
                   currentTarget.classList.add('border-primary-subtle');
                 }}
               >
-                <p className="fs-3 m-0">{tempReal.avg}</p>
-                <p className="mt-5 mb-1" style={{ fontSize: '12px' }}>{forecastDate.toLocaleString('ru-RU', dateOptions)}</p>
+                <p className="fs-3 mb-0 mt-5">{tempReal.avg}</p>
+                <p className="mb-0" style={{ fontSize: '12px' }}>{forecastDate.toLocaleString('ru-RU', dateOptions)}</p>
+                <p className="mb-1" style={{ fontSize: '12px' }}>{forecastDate.toLocaleString('ru-RU', weekdayOptions)}</p>
               </Col>
             </Col>
           );
